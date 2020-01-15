@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RegisterDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RegisterTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="LName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="AltPhone" Type="varchar" MaxLength="20" />
+          <Property Name="Date1" Type="datetime" />
+          <Property Name="Intake" Type="varchar" MaxLength="50" />
+          <Property Name="PGDegree" Type="varchar" MaxLength="100" />
+          <Property Name="PGUNIV" Type="varchar" MaxLength="100" />
+          <Property Name="PGPercentage" Type="int" />
+          <Property Name="PGYear" Type="int" />
+          <Property Name="GDegree" Type="varchar" MaxLength="100" />
+          <Property Name="GUNIV" Type="varchar" MaxLength="100" />
+          <Property Name="GPercentage" Type="int" />
+          <Property Name="GYear" Type="int" />
+          <Property Name="InterDegree" Type="varchar" MaxLength="100" />
+          <Property Name="InterUNIV" Type="varchar" MaxLength="100" />
+          <Property Name="InterPercentage" Type="int" />
+          <Property Name="InterYear" Type="int" />
+          <Property Name="SSCDegree" Type="varchar" MaxLength="100" />
+          <Property Name="SSCUNIV" Type="varchar" MaxLength="100" />
+          <Property Name="SSCPercentage" Type="int" />
+          <Property Name="SSCYear" Type="int" />
+          <Property Name="IELTSPTEScore" Type="int" />
+          <Property Name="GREGMAT" Type="int" />
+          <Property Name="CountryChoice" Type="varchar" MaxLength="20" />
+          <Property Name="HeardAbout" Type="varchar" MaxLength="30" />
+          <Property Name="IELTSPTEImage" Type="varchar" MaxLength="100" />
+          <Property Name="PGorGraduateImage" Type="varchar" MaxLength="100" />
+          <Property Name="SSCINTERImage" Type="varchar" MaxLength="100" />
+          <Property Name="singofStudent" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="RegisterDbModelStoreContainer">
+          <EntitySet Name="RegisterTable" EntityType="Self.RegisterTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RegisterDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RegisterTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AltPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Date1" Type="DateTime" Precision="3" />
+          <Property Name="Intake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PGDegree" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PGUNIV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PGPercentage" Type="Int32" />
+          <Property Name="PGYear" Type="Int32" />
+          <Property Name="GDegree" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GUNIV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GPercentage" Type="Int32" />
+          <Property Name="GYear" Type="Int32" />
+          <Property Name="InterDegree" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InterUNIV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InterPercentage" Type="Int32" />
+          <Property Name="InterYear" Type="Int32" />
+          <Property Name="SSCDegree" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SSCUNIV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SSCPercentage" Type="Int32" />
+          <Property Name="SSCYear" Type="Int32" />
+          <Property Name="IELTSPTEScore" Type="Int32" />
+          <Property Name="GREGMAT" Type="Int32" />
+          <Property Name="CountryChoice" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HeardAbout" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IELTSPTEImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PGorGraduateImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SSCINTERImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="singofStudent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="RegisterDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RegisterTables" EntityType="Self.RegisterTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RegisterDbModelStoreContainer" CdmEntityContainer="RegisterDbEntities">
+          <EntitySetMapping Name="RegisterTables">
+            <EntityTypeMapping TypeName="RegisterDbModel.RegisterTable">
+              <MappingFragment StoreEntitySet="RegisterTable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AltPhone" ColumnName="AltPhone" />
+                <ScalarProperty Name="Date1" ColumnName="Date1" />
+                <ScalarProperty Name="Intake" ColumnName="Intake" />
+                <ScalarProperty Name="PGDegree" ColumnName="PGDegree" />
+                <ScalarProperty Name="PGUNIV" ColumnName="PGUNIV" />
+                <ScalarProperty Name="PGPercentage" ColumnName="PGPercentage" />
+                <ScalarProperty Name="PGYear" ColumnName="PGYear" />
+                <ScalarProperty Name="GDegree" ColumnName="GDegree" />
+                <ScalarProperty Name="GUNIV" ColumnName="GUNIV" />
+                <ScalarProperty Name="GPercentage" ColumnName="GPercentage" />
+                <ScalarProperty Name="GYear" ColumnName="GYear" />
+                <ScalarProperty Name="InterDegree" ColumnName="InterDegree" />
+                <ScalarProperty Name="InterUNIV" ColumnName="InterUNIV" />
+                <ScalarProperty Name="InterPercentage" ColumnName="InterPercentage" />
+                <ScalarProperty Name="InterYear" ColumnName="InterYear" />
+                <ScalarProperty Name="SSCDegree" ColumnName="SSCDegree" />
+                <ScalarProperty Name="SSCUNIV" ColumnName="SSCUNIV" />
+                <ScalarProperty Name="SSCPercentage" ColumnName="SSCPercentage" />
+                <ScalarProperty Name="SSCYear" ColumnName="SSCYear" />
+                <ScalarProperty Name="IELTSPTEScore" ColumnName="IELTSPTEScore" />
+                <ScalarProperty Name="GREGMAT" ColumnName="GREGMAT" />
+                <ScalarProperty Name="CountryChoice" ColumnName="CountryChoice" />
+                <ScalarProperty Name="HeardAbout" ColumnName="HeardAbout" />
+                <ScalarProperty Name="IELTSPTEImage" ColumnName="IELTSPTEImage" />
+                <ScalarProperty Name="PGorGraduateImage" ColumnName="PGorGraduateImage" />
+                <ScalarProperty Name="SSCINTERImage" ColumnName="SSCINTERImage" />
+                <ScalarProperty Name="singofStudent" ColumnName="singofStudent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,238 +1,261 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="MypageInfo">
 <head>
     <title></title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+    <script src="PTEGRE.js"></script>
+   
 </head>
-<body>
-    <div class="container">
-        <div class="">
+<body ng-controller="MypageController">
+  
+        <div class="container">
+            <div class="w3-panel w3-card-4">
+                <div class="">
 
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <form role="form" method="POST" action="#">
-                    <h3 style="text-align:center;">Register Your Details</h3>
-                        
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <form role="form" method="POST" action="#">
+                                <h3 style="text-align:center;">Register Your Details</h3>
 
-                        <h5>Student Details</h5>
 
-                        <div class="row">
-                            <div class="form-group form-group-sm col-md-6">
+                                <h5>Student Details</h5>
 
-                                <input type="text" class="form-control input-sm" name="" id="first_name" placeholder="First Name">
-                            </div>
-                            <div class="form-group col-md-6">
+                                <div class="row">
+                                    <div class="form-group form-group-sm col-md-6">
 
-                                <input type="text" class="form-control input-sm" name="last_name" id="" placeholder="Last Name">
-                            </div>
+                                        <input type="text" class="form-control input-sm" name="" id="FName" placeholder="First Name" ng-model="S.FName">
+                                    </div>
+                                    <div class="form-group col-md-6">
+
+                                        <input type="text" class="form-control input-sm" name="LName" id="" placeholder="Last Name" ng-model="S.LName">
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-0">
+
+
+                                    </div>
+                                    <div class="form-group col-md-12">
+
+                                        <input type="email" class="form-control" name="Email" id="Email" placeholder="Email" ng-model="S.Email">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+
+                                        <input type="text" class="form-control" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number" ng-model="S.PhoneNumber">
+                                    </div>
+                                    <div class="form-group col-md-6">
+
+                                        <input type="text" class="form-control" name="AltPhoneNumber" id="AltPhoneNumber" placeholder="Alt Phone Number" ng-model="S.AltPhoneNumber">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+
+                                        <input type="date" class="form-control" name="" id="DOB" placeholder="Data Of Birth" ng-model="S.DOB">
+                                    </div>
+                                    <div class="form-group col-md-6">
+
+                                        <input type="text" class="form-control" name="InTake" id="InTake" placeholder="InTake" ng-model="S.InTake">
+                                    </div>
+                                </div>
+
+
+                                <h5>Educational Qualification</h5>
+
+                                <div class="table-responsive">
+                                    <table border="1" class="" style="border-color:lightgray">
+                                        <tr>
+                                            <th></th>
+                                            <th>Degree</th>
+                                            <th>Univ/Board</th>
+                                            <th>Percentage</th>
+                                            <th>Year of Pass</th>
+                                        </tr>
+                                        <tr>
+                                            <td>PGraduate</td>
+                                            <td>
+                                                <input type="text" name="PGDegree" id="PGDegree" style="border: none" class="form-control" ng-model="S.PGDegree" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="PGUniv" id="PGUniv" style="border: none" class="form-control" ng-model="S.PGUniv"  />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="PGPercentage" id="PGPercentage" style="border: none" class="form-control" ng-model="S.PGPercentage"  />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="PGYear" id="PGYear" style="border: none" class="form-control" ng-model="S.PGYear" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Graduate</td>
+                                            <td>
+                                                <input type="text" name="Graduate" id="Graduate" style="border: none" class="form-control" ng-model="S.Graduate"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="GUniv" id="GUniv" style="border: none" class="form-control" ng-model="S.GUniv" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="GPercentage" id="GPercentage" style="border: none" class="form-control" ng-model="S.GPercentage" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="GYear" id="GYear" style="border: none" class="form-control" ng-model="S.GYear" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Inter/Dip</td>
+                                            <td>
+                                                <input type="text" name="Inter/Dip" id="Inter/Dip" style="border: none" class="form-control" ng-model="S.InterDip"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="IUniv" id="IUniv" style="border: none" class="form-control" ng-model="S.IUniv" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="IPercentage" id="IPercentage" style="border: none" class="form-control" ng-model="S.IPercentage" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="IYear" if="IYear" style="border: none" class="form-control" ng-model="S.IYear" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>SSC</td>
+                                            <td>
+                                                <input type="text" name="SSC" id="SSC" style="border: none" class="form-control" ng-model="S.SSC" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="SSCUniv" id="SSCUniv" style="border: none" class="form-control" ng-model="S.SSCUniv" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="SSCPercetage" id="SSCPercetage" style="border: none" class="form-control" ng-model="S.SSCPercetage" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="SSCYear" id="SSCYear" style="border: none" class="form-control" ng-model="S.SSCYear"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br />
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" name="pteielts" id="pteielts" placeholder="IELTS/PTE/TOEFL" ng-model="S.pteielts">
+                                    </div>
+                                    <div class="form-group col-md-6">
+
+                                        <input type="text" class="form-control" name="gregmat" id="gregmat" placeholder="GRE/GMAT/SAT" ng-model="S.gregmat">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label>Country Of Choice</label>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" name="USA" id="USA" value="USA" ng-model="S.USA">USA
+                                    </div>
+                                    <div class="form-group col-md-2">
+
+                                        <input type="checkbox" name="UK" id="UK" value="UK" ng-model="S.UK">UK
+                                    </div>
+                                    <div class="form-group col-md-2">
+
+                                        <input type="checkbox" name="CANADA" id="CANADA" value="CANADA" ng-model="S.CANADA">CANADA
+                                    </div>
+                                    <div class="form-group col-md-2">
+
+                                        <input type="checkbox" name="AUSTRALIA" id="AUSTRALIA" placeholder="AUSTRALIA" ng-model="S.AUSTRALIA">AUSTRALIA
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label>I heard about abacus</label>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" name="NewsPaper" id="NewsPaper" value="NewsPaper" ng-model="S.NewsPaper">NewsPaper
+                                    </div>
+                                    <div class="form-group col-md-2">
+
+                                        <input type="checkbox" name="WebSite" id="WebSite" value="WebSite" ng-model="S.WebSite">WebSite
+                                    </div>
+                                    <div class="form-group col-md-2">
+
+                                        <input type="checkbox" name="SocialMedia" id="SocialMedia" value="SocialMedia" ng-model="S.SocialMedia">Social Media
+                                    </div>
+                                    <div class="form-group col-md-2">
+
+                                        <input type="checkbox" name="Friends" id="Friends" placeholder="Friends" ng-model="S.Friends">Friends
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label>IELTS/PTE/TOEFL/GRE</label>
+                                        <input type="file" class="form-control" value="IELTS/PTE/TOEFL/GRE" multiple="multiple" ngf-select="UploadFiles($files)" onchange="angular.element(this).scope().SelectFile(event)" />
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Graduate/PG</label>
+                                        <input type="file" class="form-control" value="Graduate/PG" ngf-select="UploadFiles($files)" onchange="angular.element(this).scope().SelectFile(event)" />
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>SSC/INTER</label>
+                                        <input type="file" class="form-control" value="SSC/INTER" ngf-select="UploadFiles($files)" onchange="angular.element(this).scope().SelectFile(event)" />
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+
+                                    </div>
+                                    <div class="form-group col-md-4">
+
+                                    </div>
+                                    <div class="form-group col-md-4">
+
+                                        <input type="text" name="sign" id="sign" style="border: none" class="form-control" ng-model="S.sign" />
+                                        <label>Signature Of The Student</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <button class="btn btn-primary" ng-click="Insert(S)">Submit</button>
+                                    </div>
+                                    <div class="form-group col-md-4">
+
+                                      
+                                    </div>
+                                </div>
+                               
+                            </form>
                         </div>
-
-
-
-
-
-                        <div class="row">
-                            <div class="form-group col-md-0">
-
-
-                            </div>
-                            <div class="form-group col-md-12">
-
-                                <input type="email" class="form-control" name="email" id="" placeholder="Email">
-                            </div>
-                        </div>
-
-
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-
-                                <input type="text" class="form-control" name="" id="PhoneNumber" placeholder="Phone Number">
-                            </div>
-                            <div class="form-group col-md-6">
-
-                                <input type="text" class="form-control" name="Alt PhoneNumber" id="" placeholder="Alt Phone Number">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-
-                                <input type="date" class="form-control" name="" id="DOB" placeholder="Data Of Birth">
-                            </div>
-                            <div class="form-group col-md-6">
-
-                                <input type="text" class="form-control" name="intake" id="" placeholder="InTake">
-                            </div>
-                        </div>
-
-
-                        <h5>Educational Qualification</h5>
-
-                        <div class="table-responsive">
-                            <table border="1" class="" style="border-color:lightgray">
-                                <tr>
-                                    <th></th>
-                                    <th>Degree</th>
-                                    <th>Univ/Board</th>
-                                    <th>Percentage</th>
-                                    <th>Year of Pass</th>
-                                </tr>
-                                <tr>
-                                    <td>PGraduate</td>
-                                    <td>
-                                        <input type="text" name="postgra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="gra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="inter" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="ssc" style="border: none" class="form-control" />
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Graduate</td>
-                                    <td>
-                                        <input type="text" name="postgra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="gra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="inter" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="ssc" style="border: none" class="form-control" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Inter/Dip</td>
-                                    <td>
-                                        <input type="text" name="postgra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="gra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="inter" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="ssc" style="border: none" class="form-control" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>SSC</td>
-                                    <td>
-                                        <input type="text" name="postgra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="gra" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="inter" style="border: none" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="ssc" style="border: none" class="form-control" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <br />
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="pte" id="pte" placeholder="IELTS/PTE/TOEFL">
-                            </div>
-                            <div class="form-group col-md-6">
-
-                                <input type="text" class="form-control" name="gre" id="gre" placeholder="GRE/GMAT/SAT">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label>Country Of Choice</label>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="checkbox" name="pte" id="pte" value="USA">USA
-                            </div>
-                            <div class="form-group col-md-2">
-
-                                <input type="checkbox" name="pte" id="pte" value="UK">UK
-                            </div>
-                            <div class="form-group col-md-2">
-
-                                <input type="checkbox" name="pte" id="pte" value="CANADA">CANADA
-                            </div>
-                            <div class="form-group col-md-2">
-
-                                <input type="checkbox" name="gre" id="gre" placeholder="AUSTRALIA">AUSTRALIA
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label>I heard about abacus</label>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="checkbox" name="pte" id="pte" value="USA">NewsPaper
-                            </div>
-                            <div class="form-group col-md-2">
-
-                                <input type="checkbox" name="pte" id="pte" value="UK">WebSite
-                            </div>
-                            <div class="form-group col-md-2">
-
-                                <input type="checkbox" name="pte" id="pte" value="CANADA">Social Media
-                            </div>
-                            <div class="form-group col-md-2">
-
-                                <input type="checkbox" name="gre" id="gre" placeholder="AUSTRALIA">Friends
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label>IELTS/PTE/TOEFL/GRE</label>
-                                <input type="file" class="form-control" value="IELTS/PTE/TOEFL/GRE" />
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>Graduate/PG</label>
-                                <input type="file" class="form-control" value="Graduate/PG" />
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>SSC/INTER</label>
-                                <input type="file" class="form-control" value="SSC/INTER" />
-
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="form-group col-md-4">
-
-                            </div>
-                            <div class="form-group col-md-4">
-
-                            </div>
-                            <div class="form-group col-md-4">
-
-                                <input type="text" name="sign" style="border: none" class="form-control" />
-                                <label>Signature Of The Student</label>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+
     </div>
 
 </body>
