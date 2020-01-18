@@ -7,7 +7,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
     <script src="PTEGRE.js"></script>
@@ -209,17 +210,19 @@
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>IELTS/PTE/TOEFL/GRE</label>
-                                    <input type="file" multiple="multiple" ngf-select="UploadFiles($files)" onchange="angular.element(this).scope().SelectFile(event)" ng-model="S.IELTSPTEImage" />
+                                    <input type="file" class="form-control" value="Graduate/PG" ngf-select="UploadFiles($files)" ng-model="S.IELTSPTEImage" />
                                 </div>
-                                <!--<div class="form-group col-md-4">
-                                    <label>Graduate/PG</label>
-                                    <input type="file" class="form-control" value="Graduate/PG" multiple="multiple" ngf-select="UploadFiles1($files)" onchange="angular.element(this).scope().SelectFile(event)" ng-model="S.PGorGraduateImage" />
-                                </div>
+                                
+                                    <div class="form-group col-md-4">
+                                        <label>Graduate/PG</label>
+                                        <input type="file" class="form-control" value="Graduate/PG" ngf-select="UploadFiles1($files)" ng-model="S.PGorGraduateImage" />
+                                    </div>
+                             
                                 <div class="form-group col-md-4">
                                     <label>SSC/INTER</label>
-                                    <input type="file" class="form-control" value="SSC/INTER" multiple="multiple" ngf-select="UploadFiles2($files)" onchange="angular.element(this).scope().SelectFile(event)" ng-model="S.SSCINTERImage" />
+                                    <input type="file" class="form-control" value="SSC/INTER" ngf-select="UploadFiles2($files)" ng-model="S.SSCINTERImage" />
 
-                                </div>-->
+                                </div>
                             </div>
 
 
@@ -257,6 +260,21 @@
         </div>
 
     </div>
+
+    <div>
+        <button class="btn btn-primary" ng-click="Show()" id="show" name="show">SHOW TABLE</button>
+    </div>
+
+    <table id="mytable" name="mytable">
+        <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr ng-repeat="try in GetDetails">
+            <td>{{try.FName}}</td>
+            <td>{{try>LName}}</td>
+        </tr>
+    </table>
 
 </body>
 </html>
