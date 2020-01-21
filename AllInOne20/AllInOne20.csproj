@@ -915,6 +915,8 @@
     <Content Include="scripts\test-bundles\angular-route.js" />
     <Content Include="scripts\test-bundles\angular-sanitize.js" />
     <Content Include="scripts\test-bundles\angular-touch.js" />
+    <Content Include="TotalGrid.html" />
+    <Content Include="totalgridjs.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

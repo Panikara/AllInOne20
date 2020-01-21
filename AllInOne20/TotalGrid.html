@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html ng-app="totalgrid">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <script src="http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <script src="totalgridjs.js"></script>
+
+</head>
+<body ng-controller="mygridcontroller" style="">
+
+    <!---Heading-->
+    <div class="row">
+        <div class="form-group col-md-1"></div>
+        <div class="col-md-10 rounded-bottom">
+            <div class="card" style="text-align:center;background-color:gainsboro">
+                <h4>All Student Details</h4>
+            </div>
+        </div>
+        <div class="form-group col-md-1"> </div>
+    </div>
+
+    <!-----Table-->
+    <div class="row">
+        <div class="form-group col-md-1"> </div>
+
+        <div class="col-md-10 rounded-bottom">
+            <div class="card table-responsive rounded-bottom">
+                <table id="mytable" name="mytable" border="0" class="table rounded-bottom">
+                    <thead>
+                        <tr class="text-white" style="background-color:midnightblue">
+                            <th class="align-middle font-weight-normal">Name</th>
+                            <th class="align-middle font-weight-normal">Last Name</th>
+                            <th class="align-middle font-weight-normal">Email</th>
+                            <th class="align-middle font-weight-normal">Phone</th>
+                            <th class="align-middle font-weight-normal">Alt Phone</th>
+                            <th class="align-middle font-weight-normal">Date</th>
+                            <th class="align-middle font-weight-normal">InTake</th>
+                            <th class="align-middle font-weight-normal">Graduate</th>
+                            <th class="align-middle font-weight-normal">G Unversity</th>
+                            <th class="align-middle font-weight-normal">G Percentage</th>
+                            <th class="align-middle font-weight-normal">G Year</th>
+                            <th class="align-middle font-weight-normal">12 Board</th>
+                            <th class="align-middle font-weight-normal">I Unveristy/College</th>
+                            <th class="align-middle font-weight-normal">Inter Percentage</th>
+                            <th class="align-middle font-weight-normal">I Year</th>
+                            <th class="align-middle font-weight-normal">SSC Degree</th>
+                            <th class="align-middle font-weight-normal">10 Board</th>
+                            <th class="align-middle font-weight-normal">SSC Percentage</th>
+                            <th class="align-middle font-weight-normal">SSC Year</th>
+                            <th class="align-middle font-weight-normal">IELTSPTEScore</th>
+                            <th class="align-middle font-weight-normal">.GREGMAT</th>
+                            <th class="align-middle font-weight-normal">CountryChoice</th>
+                            <th class="align-middle font-weight-normal">HeardAbout</th>
+                            <th class="align-middle font-weight-normal">IELTS/PTE ScoreCard</th>
+                            <th class="align-middle font-weight-normal">PG/Graduate Certificate</th>
+                            <th class="align-middle font-weight-normal">SSC Certificate </th>
+                            <th class="align-middle font-weight-normal">Sign</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="try in GetDetails">
+                            <td>{{try.Name}}</td>
+                            <td>{{try.LName}} </td>
+                            <td>{{try.Email}}</td>
+                            <td>{{try.Phone}}</td>
+                            <td>{{try.AltPhone}}</td>
+                            <td>{{try.Date1}}</td>
+                            <td>{{try.Intake}}</td>
+                            <td>{{try.GDegree}}</td>
+                            <td>{{try.GUNIV}}</td>
+                            <td>{{try.GPercentage}}</td>
+                            <td>{{try.GYear}}</td>
+                            <td>{{try.InterDegree}}</td>
+                            <td>{{try.InterUNIV}}</td>
+                            <td>{{try.InterPercentage}}</td>
+                            <td>{{try.InterYear}}</td>
+                            <td>{{try.SSCDegree}}</td>
+                            <td>{{try.SSCUNIV}}</td>
+                            <td>{{try.SSCPercentage}}</td>
+                            <td>{{try.SSCYear}}</td>
+                            <td>{{try.IELTSPTEScore}}</td>
+                            <td>{{try.GREGMAT}}</td>
+                            <td>{{try.CountryChoice}}</td>
+                            <td>{{try.HeardAbout}}</td>
+                            <td><a href="#" ng-click="IELTSImage()">IELTS/PTE ScoreCard </a></td>
+                            <td><a href="#" ng-click="PGGraduateCertificate()">PG/Graduate Certificate</a></td>
+                            <td><a href="#"> SSC Certificate</a></td>
+                            <td>{{try.singofStudent}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group col-md-1"></div>
+    </div>
+
+    <!----Images-->
+    <div style="text-align:center">
+
+        <img ng-src="\Uploads\Animation.jpg" id="imag1" ng-show="image1ielts" width="500" height="500" ng-model="ieltsimage"  download />
+        <br />
+        <button ng-click="Download(\Uploads\Animation.jpg)" ng-show="imagedownload">Download</button>
+    </div>
+    <div style="text-align:center">
+        <img ng-src="\Uploads\leaf.jpg" id="imag2" ng-show="pgCertificate" width="500" height="500" ng-model="pgCertificatemodel"  download />
+        <br />
+        <button ng-click="Download(\Uploads\leaf.jpg)" ng-show="pgdownload">Download</button>
+    </div>
+</body>
+</html>

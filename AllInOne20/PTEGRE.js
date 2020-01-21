@@ -9,7 +9,7 @@ app.controller("MypageController", function ($scope, $http, $window, Upload) {
 
         alert("Hi");
 
-        $http({
+        $http({  
             method: "POST",
             url: "/Register/Index",
             data: S,
@@ -106,22 +106,23 @@ app.controller("MypageController", function ($scope, $http, $window, Upload) {
         }
     }
 
-    $scope.Show = function () {
-        alert("Show")
-        $http.get("/Register/Show").then(function (response) {
-            $scope.GetDetails = response.data;
-        })
+    //$scope.Show = function () {
+    //    alert("Show")
+    //    $http.get("/Register/Show").then(function (response) {
+    //        $scope.GetDetails = response.data;
+    //        console.log($scope.GetDetails)
+    //    })
 
         
-    }
+    //}
 
-    $(document).ready(function () {
-        $("#show").click(function () {
-            $("#mytable").DataTable({
+    //$(document).ready(function () {
+    //    $("#show").click(function () {
+    //        $("#mytable").DataTable({
                
-            });
-        })
+    //        });
+    //    })
        
-    });
+    //});
    
 })

@@ -12,10 +12,10 @@ namespace AllInOne20.Controllers
 
         RegisterDbEntities dbContext = new RegisterDbEntities();
         // GET: Register
-   
+
         public ActionResult Index(RegisterTable regDetails)
         {
-           
+
             dbContext.RegisterTables.Add(regDetails);
             dbContext.SaveChanges();
             return View();
@@ -31,19 +31,19 @@ namespace AllInOne20.Controllers
             if (Request.Files.Count > 0)
             {
                 //foreach (string key in Request.Files)
-               // {
+                // {
 
 
-                    HttpPostedFileBase postedFile = Request.Files[0];
-                    postedFile.SaveAs(path + postedFile.FileName);
+                HttpPostedFileBase postedFile = Request.Files[0];
+                postedFile.SaveAs(path + postedFile.FileName);
 
-                    string url1 = "Uploads/" + postedFile.FileName;
+                string url1 = "Uploads/" + postedFile.FileName;
 
                 return Json(url1, JsonRequestBehavior.AllowGet);
                 // }
             }
             return View();
-            
+
         }
 
         public ActionResult ImagSecond()
@@ -99,5 +99,26 @@ namespace AllInOne20.Controllers
             List<RegisterTable> getDetails = dbContext.RegisterTables.ToList();
             return Json(getDetails, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Download(string name)
+        {
+            string ModifiName = "~" + @"\Uploads\" + name;
+            string fullName = Server.MapPath(ModifiName);
+
+            byte[] fileBytes = GetFile(fullName);
+            return File(
+                fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, ModifiName);
+        }
+
+        byte[] GetFile(string s)
+        {
+            System.IO.FileStream fs = System.IO.File.OpenRead(s);
+            byte[] data = new byte[fs.Length];
+            int br = fs.Read(data, 0, data.Length);
+            if (br != fs.Length)
+                throw new System.IO.IOException(s);
+            return data;
+        }
     }
+
 }
