@@ -10,109 +10,378 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
     <script src="http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-file-saver/1.1.3/angular-file-saver.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-file-saver/1.1.3/angular-file-saver.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blob-polyfill/4.0.20190430/Blob.min.js"></script>
+
     <script src="totalgridjs.js"></script>
 
 </head>
 <body ng-controller="mygridcontroller" style="">
 
     <!---Heading-->
-    <div class="row">
-        <div class="form-group col-md-1"></div>
-        <div class="col-md-10 rounded-bottom">
-            <div class="card" style="text-align:center;background-color:gainsboro">
-                <h4>All Student Details</h4>
+    <div ng-show="Listofusers">
+        <div class="row">
+            <div class="form-group col-md-1"></div>
+            <div class="col-md-10 rounded-bottom">
+                <div class="card" style="text-align:center;background-color:gainsboro">
+                    <h4>All Student Details</h4>
+                </div>
             </div>
-        </div>
-        <div class="form-group col-md-1"> </div>
-    </div>
-
-    <!-----Table-->
-    <div class="row">
-        <div class="form-group col-md-1"> </div>
-
-        <div class="col-md-10 rounded-bottom">
-            <div class="card table-responsive rounded-bottom">
-                <table id="mytable" name="mytable" border="0" class="table rounded-bottom">
-                    <thead>
-                        <tr class="text-white" style="background-color:midnightblue">
-                            <th class="align-middle font-weight-normal">Name</th>
-                            <th class="align-middle font-weight-normal">Last Name</th>
-                            <th class="align-middle font-weight-normal">Email</th>
-                            <th class="align-middle font-weight-normal">Phone</th>
-                            <th class="align-middle font-weight-normal">Alt Phone</th>
-                            <th class="align-middle font-weight-normal">Date</th>
-                            <th class="align-middle font-weight-normal">InTake</th>
-                            <th class="align-middle font-weight-normal">Graduate</th>
-                            <th class="align-middle font-weight-normal">G Unversity</th>
-                            <th class="align-middle font-weight-normal">G Percentage</th>
-                            <th class="align-middle font-weight-normal">G Year</th>
-                            <th class="align-middle font-weight-normal">12 Board</th>
-                            <th class="align-middle font-weight-normal">I Unveristy/College</th>
-                            <th class="align-middle font-weight-normal">Inter Percentage</th>
-                            <th class="align-middle font-weight-normal">I Year</th>
-                            <th class="align-middle font-weight-normal">SSC Degree</th>
-                            <th class="align-middle font-weight-normal">10 Board</th>
-                            <th class="align-middle font-weight-normal">SSC Percentage</th>
-                            <th class="align-middle font-weight-normal">SSC Year</th>
-                            <th class="align-middle font-weight-normal">IELTSPTEScore</th>
-                            <th class="align-middle font-weight-normal">.GREGMAT</th>
-                            <th class="align-middle font-weight-normal">CountryChoice</th>
-                            <th class="align-middle font-weight-normal">HeardAbout</th>
-                            <th class="align-middle font-weight-normal">IELTS/PTE ScoreCard</th>
-                            <th class="align-middle font-weight-normal">PG/Graduate Certificate</th>
-                            <th class="align-middle font-weight-normal">SSC Certificate </th>
-                            <th class="align-middle font-weight-normal">Sign</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="try in GetDetails">
-                            <td>{{try.Name}}</td>
-                            <td>{{try.LName}} </td>
-                            <td>{{try.Email}}</td>
-                            <td>{{try.Phone}}</td>
-                            <td>{{try.AltPhone}}</td>
-                            <td>{{try.Date1}}</td>
-                            <td>{{try.Intake}}</td>
-                            <td>{{try.GDegree}}</td>
-                            <td>{{try.GUNIV}}</td>
-                            <td>{{try.GPercentage}}</td>
-                            <td>{{try.GYear}}</td>
-                            <td>{{try.InterDegree}}</td>
-                            <td>{{try.InterUNIV}}</td>
-                            <td>{{try.InterPercentage}}</td>
-                            <td>{{try.InterYear}}</td>
-                            <td>{{try.SSCDegree}}</td>
-                            <td>{{try.SSCUNIV}}</td>
-                            <td>{{try.SSCPercentage}}</td>
-                            <td>{{try.SSCYear}}</td>
-                            <td>{{try.IELTSPTEScore}}</td>
-                            <td>{{try.GREGMAT}}</td>
-                            <td>{{try.CountryChoice}}</td>
-                            <td>{{try.HeardAbout}}</td>
-                            <td><a href="#" ng-click="IELTSImage()">IELTS/PTE ScoreCard </a></td>
-                            <td><a href="#" ng-click="PGGraduateCertificate()">PG/Graduate Certificate</a></td>
-                            <td><a href="#"> SSC Certificate</a></td>
-                            <td>{{try.singofStudent}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="form-group col-md-1"> </div>
         </div>
 
-        <div class="form-group col-md-1"></div>
+        <!-----Table-->
+        <div class="row">
+            <div class="form-group col-md-1"> </div>
+
+            <div class="col-md-10 rounded-bottom">
+                <div class="card table-responsive rounded-bottom">
+                    <table id="mytable" name="mytable" border="0" class="table rounded-bottom">
+                        <thead>
+                            <tr class="text-white" style="background-color:midnightblue">
+                                <th class="align-middle font-weight-normal">Name</th>
+                                <th class="align-middle font-weight-normal">Last Name</th>
+                                <th class="align-middle font-weight-normal">Email</th>
+                                <th class="align-middle font-weight-normal">Phone</th>
+                                <th class="align-middle font-weight-normal">Alt Phone</th>
+                                <th class="align-middle font-weight-normal">Date</th>
+                                <th class="align-middle font-weight-normal">InTake</th>
+                                <th class="align-middle font-weight-normal">Graduate</th>
+                                <th class="align-middle font-weight-normal">G Unversity</th>
+                                <th class="align-middle font-weight-normal">G Percentage</th>
+                                <th class="align-middle font-weight-normal">G Year</th>
+                                <th class="align-middle font-weight-normal">12 Board</th>
+                                <th class="align-middle font-weight-normal">I Unveristy/College</th>
+                                <th class="align-middle font-weight-normal">Inter Percentage</th>
+                                <th class="align-middle font-weight-normal">I Year</th>
+                                <th class="align-middle font-weight-normal">SSC Degree</th>
+                                <th class="align-middle font-weight-normal">10 Board</th>
+                                <th class="align-middle font-weight-normal">SSC Percentage</th>
+                                <th class="align-middle font-weight-normal">SSC Year</th>
+                                <th class="align-middle font-weight-normal">IELTSPTEScore</th>
+                                <th class="align-middle font-weight-normal">.GREGMAT</th>
+                                <th class="align-middle font-weight-normal">CountryChoice</th>
+                                <th class="align-middle font-weight-normal">HeardAbout</th>
+                                <th class="align-middle font-weight-normal">IELTS/PTE ScoreCard</th>
+                                <th class="align-middle font-weight-normal">PG/Graduate Certificate</th>
+                                <th class="align-middle font-weight-normal">SSC Certificate </th>
+                                <th class="align-middle font-weight-normal">Sign</th>
+                                <th class="align-middle font-weight-normal">Status</th>
+                                <th class="align-middle font-weight-normal">Actions</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="try in GetDetails">
+                                <td>{{try.Name}}</td>
+                                <td>{{try.LName}} </td>
+                                <td>{{try.Email}}</td>
+                                <td>{{try.Phone}}</td>
+                                <td>{{try.AltPhone}}</td>
+                                <td>{{try.Date1}}</td>
+                                <td>{{try.Intake}}</td>
+                                <td>{{try.GDegree}}</td>
+                                <td>{{try.GUNIV}}</td>
+                                <td>{{try.GPercentage}}</td>
+                                <td>{{try.GYear}}</td>
+                                <td>{{try.InterDegree}}</td>
+                                <td>{{try.InterUNIV}}</td>
+                                <td>{{try.InterPercentage}}</td>
+                                <td>{{try.InterYear}}</td>
+                                <td>{{try.SSCDegree}}</td>
+                                <td>{{try.SSCUNIV}}</td>
+                                <td>{{try.SSCPercentage}}</td>
+                                <td>{{try.SSCYear}}</td>
+                                <td>{{try.IELTSPTEScore}}</td>
+                                <td>{{try.GREGMAT}}</td>
+                                <td>{{try.CountryChoice}}</td>
+                                <td>{{try.HeardAbout}}</td>
+                                <td>
+                                    <!--<a href="#" ng-click="IELTSImage()">IELTS/PTE ScoreCard </a>-->
+                                    <a href="\Uploads\Animation.jpg" download="open_Downloads$seeScoreCard">
+                                        IELTS/PTE ScoreCard
+                                    </a>
+                                </td>
+                                <td>
+                                    <!--<a href="#" ng-click="PGGraduateCertificate()">PG/Graduate Certificate</a>-->
+                                    <a href="\Uploads\leaf.jpg" download="open_Downloads$see_PG_Certificate">
+                                        PG/Graduate Certificate
+                                    </a>
+                                </td>
+                                <td>
+                                    <!--<a href="#"> SSC Certificate</a>-->
+                                    <a href="\Uploads\Animation.jpg" download="open_Downloads$see_SSC_ertificate">
+                                        SSC Certificate
+                                    </a>
+                                </td>
+                                <td>{{try.singofStudent}}</td>
+                                <td>
+                                    <a href="#" ng-click="SentEmail(try.Email)">Pending</a>
+                                    <!--<a href="#" ng-hide="try.Email">Success</a>-->
+                                </td>
+                                <td><button ng-click="View(try)">View</button></td>
+                                <td>
+                                    <button ng-click="Edit()">Edit</button>
+                                </td>
+                                <td><button>Delete</button></td>
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-group col-md-1"></div>
+        </div>
+
     </div>
 
     <!----Images-->
-    <div style="text-align:center">
+    <!--<div style="text-align:center">
 
         <img ng-src="\Uploads\Animation.jpg" id="imag1" ng-show="image1ielts" width="500" height="500" ng-model="ieltsimage"  download />
         <br />
-        <button ng-click="Download(\Uploads\Animation.jpg)" ng-show="imagedownload">Download</button>
+        <button ng-click="Download('\Uploads\Animation.jpg')" ng-show="imagedownload">Download</button>
     </div>
     <div style="text-align:center">
         <img ng-src="\Uploads\leaf.jpg" id="imag2" ng-show="pgCertificate" width="500" height="500" ng-model="pgCertificatemodel"  download />
         <br />
-        <button ng-click="Download(\Uploads\leaf.jpg)" ng-show="pgdownload">Download</button>
+        <button ng-click="Download('\Uploads\leaf.jpg')" ng-show="pgdownload">Download</button>
+    </div>-->
+
+    <div class="container" ng-show="SingleUserhide" id="singleuserpdf">
+        <div class="w3-panel w3-card-4" style="background-color:white">
+            <div class="">
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                       
+                        <div class="row">
+                            <div class="form-group form-group-sm col-md-6">
+
+                                <input type="text" class="form-control" name="inputName" id="inputName" placeholder="First Name" ng-model="SingleUserInfo.Name">
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <input type="text" class="form-control" name="inputLName" id="inputLName" placeholder="First Name" ng-model="SingleUserInfo.LName">
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="form-group col-md-0">
+
+
+                            </div>
+                            <div class="form-group col-md-12">
+
+                                <input type="email" class="form-control" name="Email" id="inputEamil" placeholder="inputEamil" ng-model="SingleUserInfo.Email">
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+
+                                <input type="text" class="form-control" name="inputPhoneNumber" id="inputPhoneNumber" placeholder="Phone Number" ng-model="SingleUserInfo.Phone">
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <input type="text" class="form-control" name="inputAltPhoneNumber" id="inputAltPhoneNumber" placeholder="Alt Phone Number" ng-model="SingleUserInfo.AltPhone">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+
+                                <input type="date" class="form-control" name="Date1" id="Date1" placeholder="Data Of Birth" ng-model="SingleUserInfo.Date1">
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <input type="text" class="form-control" name="InTake" id="InTake" placeholder="InTake" ng-model="SingleUserInfo.Intake">
+                            </div>
+                        </div>
+
+
+                        <h5>Educational Qualification</h5>
+
+                        <div class="table-responsive">
+                            <table border="1" class="" style="border-color:lightgray">
+                                <tr>
+                                    <th></th>
+                                    <th>Degree</th>
+                                    <th>Univ/Board</th>
+                                    <th>Percentage</th>
+                                    <th>Year of Pass</th>
+                                </tr>
+                                <tr>
+                                    <td>PGraduate</td>
+                                    <td>
+                                        <input type="text" name="PGDegree" id="PGDegree" style="border: none" class="form-control" ng-model="SingleUserInfo.PGDegree" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="PGUniv" id="PGUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.PGUNIV" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="PGPercentage" id="PGPercentage" style="border: none" class="form-control" ng-model="SingleUserInfo.PGPercentage" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="PGYear" id="PGYear" style="border: none" class="form-control" ng-model="SingleUserInfo.PGYear" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Graduate</td>
+                                    <td>
+                                        <input type="text" name="Graduate" id="Graduate" style="border: none" class="form-control" ng-model="SingleUserInfo.GDegree" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="GUniv" id="GUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.GUNIV" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="GPercentage" id="GPercentage" style="border: none" class="form-control" ng-model="SingleUserInfo.GPercentage" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="GYear" id="GYear" style="border: none" class="form-control" ng-model="SingleUserInfo.GYear" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Inter/Dip</td>
+                                    <td>
+                                        <input type="text" name="Inter/Dip" id="Inter/Dip" style="border: none" class="form-control" ng-model="SingleUserInfo.InterDegree" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="IUniv" id="IUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.InterUNIV" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="IPercentage" id="IPercentage" style="border: none" class="form-control" ng-model="SingleUserInfo.InterPercentage" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="IYear" if="IYear" style="border: none" class="form-control" ng-model="SingleUserInfo.InterYear" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>SSC</td>
+                                    <td>
+                                        <input type="text" name="SingleUserInfo.C" id="SingleUserInfo.C" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCDegree" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="SingleUserInfo.CUniv" id="SingleUserInfo.CUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCUNIV" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="SingleUserInfo.CPercetage" id="SingleUserInfo.CPercetage" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCPercentage" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="SingleUserInfo.CYear" id="SingleUserInfo.CYear" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCYear" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="pteielts" id="pteielts" placeholder="IELTSingleUserInfo.PTE/TOEFL" ng-model="SingleUserInfo.IELTSPTEScore">
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <input type="text" class="form-control" name="gregmat" id="gregmat" placeholder="GRE/GMAT/SingleUserInfo.T" ng-model="SingleUserInfo.GREGMAT">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label>Country Of Choice</label>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input type="checkbox" ng-checked="CountryChoice=='USingleUserInfo.'" ng-true-value="'USingleUserInfo.'" ng-model="SingleUserInfo.CountryChoice">USA
+                            </div>
+                            <div class="form-group col-md-2">
+
+                                <input type="checkbox" ng-checked="CountryChoice=='UK'" ng-true-value="'UK'" ng-model="SingleUserInfo.CountryChoice">UK
+                            </div>
+                            <div class="form-group col-md-2">
+
+                                <input type="checkbox" ng-checked="CountryChoice=='CANADA'" ng-true-value="'CANADA'" ng-model="SingleUserInfo.CountryChoice">CANADA
+                            </div>
+                            <div class="form-group col-md-2">
+
+                                <input type="checkbox" ng-checked="CountryChoice=='AUSingleUserInfo.RALIA'" ng-true-value="'AUSingleUserInfo.RALIA'" ng-model="SingleUserInfo.CountryChoice">AUSTRALIA
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label>I heard about abacus</label>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input type="checkbox" name="NewsPaper" id="NewsPaper" class="radio" ng-checked="HeardAbout=='NewsPaper'" ng-true-value="'NewsPaper'" ng-model="SingleUserInfo.HeardAbout">NewsPaper
+                            </div>
+                            <div class="form-group col-md-2">
+
+                                <input type="checkbox" name="WebSingleUserInfo.te" id="WebSingleUserInfo.te" class="radio" ng-checked="HeardAbout=='WebSingleUserInfo.te'" ng-true-value="'WebSingleUserInfo.te'" ng-model="SingleUserInfo.HeardAbout">WebSite
+                            </div>
+                            <div class="form-group col-md-2">
+
+                                <input type="checkbox" name="SingleUserInfo.cialMedia" id="SingleUserInfo.cialMedia" class="radio" ng-checked="HeardAbout=='SingleUserInfo.cial Media'" ng-true-value="'SingleUserInfo.cial Media'" ng-model="SingleUserInfo.HeardAbout">Social Media
+                            </div>
+                            <div class="form-group col-md-2">
+
+                                <input type="checkbox" name="Friends" id="Friends" placeholder="Friends" ng-checked="HeardAbout=='Friends'" ng-true-value="'Friends'" ng-model="SingleUserInfo.HeardAbout">Friends
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+
+                            </div>
+                            <div class="form-group col-md-4">
+
+                            </div>
+                            <div class="form-group col-md-4">
+
+                                <input type="text" name="sign" id="sign" style="border: none" class="form-control" ng-model="SingleUserInfo.singofStudent" />
+                                <label>Signature Of The Student</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+
+                            </div>
+                            <div class="form-group col-md-4">
+                                <button class="btn btn-success" id="downloadpdf" ng-click="DownloadPDF()">DownloadPDF</button>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <button class="btn btn-primary" ng-click="BackToList()">Back to List</button>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+
 </body>
 </html>
