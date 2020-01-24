@@ -123,7 +123,7 @@
                                 </td>
                                 <td>{{try.singofStudent}}</td>
                                 <td>
-                                    <a href="#" ng-click="SentEmail(try.Email)">Pending</a>
+                                    <a href="#" ng-click="SentEmail(try.Email)">Send A Mail</a>
                                     <!--<a href="#" ng-hide="try.Email">Success</a>-->
                                 </td>
                                 <td><button ng-click="View(try)">View</button></td>
@@ -221,7 +221,7 @@
                         <div class="table-responsive">
                             <table border="1" class="" style="border-color:lightgray">
                                 <tr>
-                                    <th></th>
+                                    <th><h4 style="display:none">List</h4></th>
                                     <th>Degree</th>
                                     <th>Univ/Board</th>
                                     <th>Percentage</th>
@@ -232,13 +232,13 @@
                                     <td>
                                         <input type="text" name="PGDegree" id="PGDegree" style="border: none" class="form-control" ng-model="SingleUserInfo.PGDegree" />
                                     </td>
-                                    <td>
+                                    <td  ng-model="SingleUserInfo.PGUNIV">
                                         <input type="text" name="PGUniv" id="PGUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.PGUNIV" />
                                     </td>
-                                    <td>
+                                    <td ng-model="SingleUserInfo.PGPercentage">
                                         <input type="text" name="PGPercentage" id="PGPercentage" style="border: none" class="form-control" ng-model="SingleUserInfo.PGPercentage" />
                                     </td>
-                                    <td>
+                                    <td ng-model="SingleUserInfo.PGYear">
                                         <input type="text" name="PGYear" id="PGYear" style="border: none" class="form-control" ng-model="SingleUserInfo.PGYear" />
                                     </td>
                                 </tr>
@@ -261,7 +261,7 @@
                                 <tr>
                                     <td>Inter/Dip</td>
                                     <td>
-                                        <input type="text" name="Inter/Dip" id="Inter/Dip" style="border: none" class="form-control" ng-model="SingleUserInfo.InterDegree" />
+                                        <input type="text" name="InterDip" id="InterDip" style="border: none" class="form-control" ng-model="SingleUserInfo.InterDegree" />
                                     </td>
                                     <td>
                                         <input type="text" name="IUniv" id="IUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.InterUNIV" />
@@ -270,22 +270,22 @@
                                         <input type="text" name="IPercentage" id="IPercentage" style="border: none" class="form-control" ng-model="SingleUserInfo.InterPercentage" />
                                     </td>
                                     <td>
-                                        <input type="text" name="IYear" if="IYear" style="border: none" class="form-control" ng-model="SingleUserInfo.InterYear" />
+                                        <input type="text" name="IYear" id="IYear" style="border: none" class="form-control" ng-model="SingleUserInfo.InterYear" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>SSC</td>
                                     <td>
-                                        <input type="text" name="SingleUserInfo.C" id="SingleUserInfo.C" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCDegree" />
+                                        <input type="text" name="SingleUserInfo.C" id="ssc" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCDegree" />
                                     </td>
                                     <td>
-                                        <input type="text" name="SingleUserInfo.CUniv" id="SingleUserInfo.CUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCUNIV" />
+                                        <input type="text" name="SingleUserInfo.CUniv" id="SUniv" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCUNIV" />
                                     </td>
                                     <td>
-                                        <input type="text" name="SingleUserInfo.CPercetage" id="SingleUserInfo.CPercetage" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCPercentage" />
+                                        <input type="text" name="SPercetage" id="SPercetage" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCPercentage" />
                                     </td>
                                     <td>
-                                        <input type="text" name="SingleUserInfo.CYear" id="SingleUserInfo.CYear" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCYear" />
+                                        <input type="text" name="SYear" id="SYear" style="border: none" class="form-control" ng-model="SingleUserInfo.SSCYear" />
                                     </td>
                                 </tr>
                             </table>

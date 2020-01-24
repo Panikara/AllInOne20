@@ -85,7 +85,51 @@ app.controller("mygridcontroller", function ($scope, $http) {
 
         pdf.text('Alt Phone: \t\t\t' + document.querySelector(`#inputAltPhoneNumber`).value, 15, 100)
 
-        source = $('#singleuserpdf')[0];
+
+        var source = $('#singleuserpdf')[0];
+
+        pdf.text(' \t\t\t' + document.querySelector(`#PGDegree`).value, 20, 220)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#Graduate`).value, 20, 300)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#InterDip`).value, 20, 370)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#ssc`).value, 20, 450)
+
+
+        pdf.text(' \t\t\t' + document.querySelector(`#PGUniv`).value, 85, 220)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#GUniv`).value, 85, 300)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#IUniv`).value, 85, 370)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#SUniv`).value, 85, 450)
+
+
+        pdf.text(' \t\t\t' + document.querySelector(`#PGPercentage`).value, 200, 220)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#GPercentage`).value, 200, 300)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#IPercentage`).value, 200, 370)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#SPercetage`).value, 200, 450)
+
+
+        pdf.text(' \t\t\t' + document.querySelector(`#PGYear`).value, 330, 220)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#GYear`).value, 330, 300)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#IYear`).value, 330, 370)
+
+        pdf.text(' \t\t\t' + document.querySelector(`#SYear`).value, 330, 450)
+
+        pdf.text('IELTS\PTE ScoreCard:\t\t\t' + document.querySelector(`#pteielts`).value, 20, 550)
+
+
+       
+
+
+       
 
         specialElementHandlers = {
             // element with id of "bypass" - jQuery style selector
@@ -95,7 +139,7 @@ app.controller("mygridcontroller", function ($scope, $http) {
             }
         };
         margins = {
-            top: 80,
+            top: 120,
             bottom: 60,
             left: 40,
             width: 522
