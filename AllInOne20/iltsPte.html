@@ -5,10 +5,9 @@
     <meta charset="utf-8" />
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
    
    
     <script src="http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
@@ -17,7 +16,33 @@
     <script src="PTEGRE.js"></script>
 
 </head>
-<body ng-controller="MypageController" style="background-color:darkseagreen">
+<body ng-controller="MypageController" style="background-image: url('img/logo-image.png')">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ABACUS Overseas</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#"><strong>Home</strong></a></li>
+                <li><a href="#"><strong>Contact Us</strong></a></li>
+                <li><a href="iltsPte.html"><strong>Register</strong></a></li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <strong>Login</strong>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="LoginPage.html" ng-click="AdminCheck()"><strong>Admin Login</strong></a></li>
+
+                    </ul>
+                </li>
+
+                <!--<li><a href="TotalGrid.html"><strong>Login</strong></a></li>-->
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="w3-panel w3-card-4" style="background-color:white">
@@ -248,7 +273,7 @@
 
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <button class="btn btn-primary" ng-click="Insert(S)">Submit</button>
+                                    <button class="form-control btn btn-primary" ng-click="Insert(S)"><strong>Submit</strong></button>
                                 </div>
                                 <div class="form-group col-md-4">
 
@@ -264,10 +289,58 @@
 
     </div>
 
-    <div>
-        <a class="btn btn-primary"  href="TotalGrid.html">Download</a>
-    </div>
+   
 
+    <footer class="footer-bs" style="background-color:black;color:lightgrey">
+        <div class="row">
+            <div class="col-md-3 footer-brand animated fadeInLeft">
+                <h2><strong>ABACUS Overseas</strong></h2>
+                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                <p>© 2020 BS3 UI Kit, All rights reserved</p>
+            </div>
+            <div class="col-md-4 footer-nav animated fadeInUp">
+                <h4>Menu —</h4>
+                <div class="col-md-6">
+                    <ul class="pages">
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Nature</a></li>
+                        <li><a href="#">Explores</a></li>
+                        <li><a href="#">Science</a></li>
+                        <li><a href="#">Advice</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 footer-social animated fadeInDown">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-ns animated fadeInRight">
+                <h4>Newsletter</h4>
+                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                <p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                        </span>
+                    </div><!-- /input-group -->
+                </p>
+            </div>
+        </div>
+    </footer>
     
 </body>
 

@@ -129,6 +129,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="iltsPte.html" />
+    <Content Include="Loginjs.js" />
+    <Content Include="LoginPage.html" />
     <Content Include="PTEGRE.js" />
     <Content Include="RegisterTableInfo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

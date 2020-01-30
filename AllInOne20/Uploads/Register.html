@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="MyReg">
+<head>
+    <title>Data table to PDF Export</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+    <script src="https://github.com/simonbengtsson/jsPDF-AutoTable"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-route.js"></script>
+    <script src="App.js"></script>
+    <style>
+        .MyHide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body ng-controller="MyCtrl">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Practice Sites </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">AboutAs</a></li>
+                <li><a href="Register.html">Register</a></li>
+                <li><a href="login2.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <form id="form" name="form" ng-submit="submit()">
+        <div class="container">
+            <div class="row">
+                <div class="row page-header">
+                    <h2 class="form-header col-md-4 col-md-offset-4">Registration Form</h2>
+                </div>
+                <div class="well col-md-4 ">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="uname">Username:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter username" name="username" ng-model="username" required>
+                            <span ng-show="form.username.$touched && form.username.$invalid" style="color:red">The name is required.</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ng-model="password" required>
+                            <span ng-show="form.password.$touched && form.password.$invalid" style="color:red">The password is required.</span>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <div class="">
+                                <input type="email" class="form-control form-control-lg input-block is-autocheck-successful" id="email" placeholder="Enter email id" name="email" ng-model="email" required ng-change="Check()" remote-Validation>
+                                <div class="is-valid"></div>
+                                <span ng-show="form.email.$touched && form.email.$invalid" style="color:red">The email is required.</span>
+                                <span ng-bind="emailspan" style="color:red"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <textarea class="form-control" rows="5" id="address" name="address" ng-model="address" required></textarea>
+                            <span ng-show="form.address.$touched && form.address.$invalid" style="color:red">The address is required.</span>
+
+                        </div>
+                    </div>
+                    <input type="file" multiple="multiple" ngf-select="UploadFiles($files)" name="postedFile" />
+                    <div>
+
+
+                    </div>
+                    <!---First One--->
+                    <button type="button" ng-click="SaveData()" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create User</button>
+
+                    <a href="login2.html" class="btn btn-primary" role="button">If You already Exist Login Here.. </a>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog" style="text-align:center">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" style="color:white;background-color:black;text-align:center">Write Reason</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" id="ss">Submit</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Second-->
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal1" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content" id="myModal1">
+                                <div class="modal-header" id="myModal1">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" style="color:white;background-color:black;text-align:center">Login</h4>
+                                </div>
+                                <div class="modal-body" id="myModal1">
+                                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" value="{{username}}" required>
+                                    <br />
+                                    <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ng-model="Mpassword" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" ng-click="login()" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Login</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            <!--<button type="submit" class="btn btn-primary" ng-disabled="form.$invalid" data-toggle="modal" data-target="#myModal">Submit</button>-->
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div>
+                        <div class="col-md-4">
+                            <h4> Search Your UserName</h4><input type="text" id="name" ng-model="name" name="name" placeholder="search your name" class="form-control" />
+                            <button value="Export" id="export" class="btn btn-primary">Export</button>
+                        </div>
+                        <div id="content">
+                            <h4 ng-hide="hide" style="visibility:hidden">Data Table to PDF EXPORT</h4>
+
+                            <table id="demo" name="demo" class="table table-bordered">
+
+                                <thead class="thead-dark">
+                                    <tr style="color:azure;background-color:black">
+                                        <th>USER</th>
+                                        <th>PASSWORD</th>
+                                        <th>EMAIL</th>
+                                        <th>ADDRESS</th>
+                                        <th>Actions</th>
+                                        
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="s in GetAllData | filter:name ">
+                                        <td class="UserName" id="{{s.UserName}}"><span class="sname" id="sname">{{s.UserName}}</span>
+                                            <input type="text"  class="UserName"  id="uname" style="display:none" ng-model="s.UserName"  />
+                                           
+                                        </td>
+                                        <td><span id="spsd">{{s.Password}}</span>
+                                            <input type="text"   style="display:none" id="upassword" ng-model="s.Password"  />
+                                        </td>
+                                        <td><span id="sname">{{s.Email}}</span>
+                                            <input type="text" placeholder ="{{s.Email}}"  style="display:none" id="uemail" ng-model="s.Email"  />
+                                        </td>
+                                        <td><span id="sname">{{s.Address}}</span>
+                                            <input type="text" placeholder="{{s.Address}}" style="display:none" id="uaddress" ng-model="s.Address" />
+                                        </td>
+                                        <td>
+                                            <a class="Edit" href="javascript:;" ng-click="UpdatedTry()">Edit</a>
+                                            <a class="Update" id="Update" href="javascript:;" style="display:none" ng-click="NextLevel(s);">Update</a>
+                                            <a class="Cancel" href="javascript:;" style="display:none">Cancel</a>
+                                            <a class="Delete" href="javascript:;" onclick="return confirm('Are you sure you want to delete this item?')" ng-click="DeleteRecord(s.Email)">Delete</a>
+                                        </td>
+                                        
+                                    </tr>
+                                <tbody>
+
+                            </table>
+                            <button id="hide" class="btn btn-danger">Hide Password Column</button>
+
+                        </div>
+
+                    </div>
+                   
+                   
+                </div>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

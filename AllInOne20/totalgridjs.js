@@ -5,13 +5,13 @@ app.controller("mygridcontroller", function ($scope, $http) {
 
     $http.get("/Register/Show").then(function (response) {
         $scope.GetDetails = response.data;
-        
+
         console.log($scope.GetDetails)
     })
 
     $scope.Listofusers = true;
 
-    
+
 
     $scope.IELTSImage = function () {
         alert("Image");
@@ -21,18 +21,18 @@ app.controller("mygridcontroller", function ($scope, $http) {
         $scope.pgdownload = false;
     }
 
-    
+
     $scope.Download = function (name) {
         alert(name);
         $http.get("/Register/Download?name=" + name).then(function (response) {
-            
+
         })
 
         //$http({
         //    method: "POST",
         //    url: "/Register/Download",
         //    data:name,
-            
+
         //})
     }
 
@@ -48,20 +48,22 @@ app.controller("mygridcontroller", function ($scope, $http) {
         alert("pending")
         $http.get("/Register/EmailStatus?email=" + email).then(function (response) {
             if (email == response.data) {
-                $scope.sbs = "Success";
+                alert("Success");
                
+                $scope.sbs = "Success";
             }
+               
         })
-           
-            
-       
+
+
+
     }
 
     $scope.View = function (SingleUserDetails) {
         alert("View");
         $scope.Listofusers = false;
         $scope.SingleUserhide = true;
-        
+
         $scope.SingleUserInfo = SingleUserDetails;
         console.log($scope.SingleUserInfo);
     }
@@ -69,21 +71,21 @@ app.controller("mygridcontroller", function ($scope, $http) {
 
     $scope.DownloadPDF = function () {
         alert("PDF");
-        
+
         var pdf = new jsPDF('p', 'pt', 'letter');
 
-     
 
-        pdf.text('Name: \t\t\t' + document.querySelector(`#inputName`).value, 15, 20)
-        
 
-        pdf.text('Last Name: \t\t\t' + document.querySelector(`#inputLName`).value, 15,40)
+        pdf.text('Name:\t' + document.querySelector(`#inputName`).value, 40, 30)
 
-        pdf.text('Email: \t\t\t' + document.querySelector(`#inputEamil`).value, 15, 60)
 
-        pdf.text('PhoneNumber: \t\t\t' + document.querySelector(`#inputPhoneNumber`).value, 15, 80)
+        pdf.text('Last Name:\t' + document.querySelector(`#inputLName`).value, 240, 30)
 
-        pdf.text('Alt Phone: \t\t\t' + document.querySelector(`#inputAltPhoneNumber`).value, 15, 100)
+        pdf.text('Email:\t' + document.querySelector(`#inputEamil`).value, 40, 60)
+
+        pdf.text('Ph Number:\t' + document.querySelector(`#inputPhoneNumber`).value, 40, 90)
+
+        pdf.text('Alt Ph:\t' + document.querySelector(`#inputAltPhoneNumber`).value, 290, 90)
 
 
         var source = $('#singleuserpdf')[0];
@@ -123,13 +125,15 @@ app.controller("mygridcontroller", function ($scope, $http) {
 
         pdf.text(' \t\t\t' + document.querySelector(`#SYear`).value, 330, 450)
 
-        pdf.text('IELTS\PTE ScoreCard:\t\t\t' + document.querySelector(`#pteielts`).value, 20, 550)
+        pdf.text('' + document.querySelector(`#pteielts`).value, 80, 550)
+
+        pdf.text('' + document.querySelector(`#gregmat`).value, 260, 530)
 
 
-       
 
 
-       
+
+
 
         specialElementHandlers = {
             // element with id of "bypass" - jQuery style selector
@@ -160,15 +164,48 @@ app.controller("mygridcontroller", function ($scope, $http) {
     }, margins);
     }
 
- 
+    $scope.Print = function () {
+        alert("Print");
+        $('body').css('visibility', 'hidden');
+        $('#header').css('visibility', 'visible')
+        $('#printTable').css('visibility', 'visible');
+        $('#buttons').css('visibility', 'visible')
+        $('#footer').css('visibility', 'visible')
+        
+        window.print();
+   
+      
+    }
+
+   
 
 
-  
+
 
     $scope.BackToList = function () {
         alert("BackToList")
         $scope.Listofusers = true;
         $scope.SingleUserhide = false;
     }
-   
-})
+
+
+
+    $scope.function = function () {
+        alert("IN")
+        $(document).ready(function () {
+           
+            $('td').click(function () {
+                alert("De")
+                $(this).toggleClass('on');
+            })
+        })
+    }
+
+
+    
+
+
+
+
+
+});
